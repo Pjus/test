@@ -1,13 +1,7 @@
 import pandas as pd
 import numpy as np
-import plotly.graph_objects as go
 
-path_dir = './Stock/raw_data'
-data = np.loadtxt(path_dir + '/' + '000660_from_2010.csv', delimiter = ',')
-data = pd.DataFrame(data)
-data.columns = ['Open', 'High', "Low", "Close", "Volumn", "Adj"]
-
-def cal_dmi(data, n=14, n_ADX=14) :
+def cal_dmi(data, n=14, n_ADX=14):
     i = 0
     UpI = [0]
     DoI = [0]
@@ -44,22 +38,4 @@ def cal_dmi(data, n=14, n_ADX=14) :
 
     return PosDI, NegDI, ADX
     
-    data["PDI"],data["MDI"],data["ADX"] = cal_dmi(data)
- 
-
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=data.index[20:], y=data["PDI"][20:],
-                        mode='lines',
-                        name="PDI"))
-fig.add_trace(go.Scatter(x=data.index[20:], y=data["MDI"][20:],
-                        mode='lines',
-                        name="MDI"))
-fig.add_trace(go.Scatter(x=data.index[20:], y=data["ADX"][20:],
-                        mode='lines',
-                        name="ADX"))
-
-fig.update_layout(title='DMI and ADX',
-                   xaxis_title='days',
-                   yaxis_title='Value')
-
-fig.show()
+# data["PDI"],data["MDI"],data["ADX"] = cal_dmi(data)

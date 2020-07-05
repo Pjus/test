@@ -29,7 +29,7 @@ class data_gan:
         
     
         # write stock data
-        with open('./Stock/raw_data/{}.csv'.format(self.tickerSymbol), 'w') as self.csv_file:
+        with open('../raw_data/{}.csv'.format(self.tickerSymbol), 'w') as self.csv_file:
             self.csv_writer = csv.DictWriter(self.csv_file, fieldnames=self.fieldnames)
             self.csv_writer.writeheader()
 
@@ -46,7 +46,7 @@ class data_gan:
 
             # print(date, Close)
 
-            with open('./Stock/raw_data/{}.csv'.format(self.tickerSymbol), 'a') as self.csv_file:
+            with open('../raw_data/{}.csv'.format(self.tickerSymbol), 'a') as self.csv_file:
                 self.csv_writer = csv.DictWriter(self.csv_file, fieldnames=self.fieldnames)
 
                 self.info = {
