@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 
-path_dir = './data'
+path_dir = './Stock/raw_data'
 data = np.loadtxt(path_dir + '/' + '000660_from_2010.csv', delimiter = ',')
 data = pd.DataFrame(data)
 data.columns = ['Open', 'High', "Low", "Close", "Volumn", "Adj"]
