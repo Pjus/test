@@ -25,6 +25,8 @@ class data_gan:
 
         #set colums
         self.fieldnames = self.tickerDf.columns
+        self.fieldnames = self.fieldnames.insert(0, 'Date')
+        
     
         # write stock data
         with open('./Stock/raw_data/{}.csv'.format(self.tickerSymbol), 'w') as self.csv_file:
@@ -55,7 +57,7 @@ class data_gan:
                     "Close" : self.Close,
                     "Volume" : self.Volume,
                     "Dividends" : self.Dividends,
-                    "Stock Split" : self.Stock_Splits
+                    "Stock Splits" : self.Stock_Splits
                 }
 
                 self.csv_writer.writerow(self.info)
