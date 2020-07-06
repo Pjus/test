@@ -34,6 +34,7 @@ class data_gan:
             self.csv_writer.writeheader()
 
         self.num = 0
+        
         while self.num < len(self.tickerDf) - 1:
             self.Date = str(self.tickerDf.index[self.num])[:10]
             self.Open = self.tickerDf['Open'].values[self.num]
