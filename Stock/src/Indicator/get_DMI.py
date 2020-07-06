@@ -35,7 +35,8 @@ def cal_dmi(data, n=14, n_ADX=14):
     NegDI = pd.Series(DoI.ewm(span=n, min_periods=1).mean() / ATR)
     ADX = pd.Series((abs(PosDI - NegDI) / (PosDI + NegDI)).ewm(span=n_ADX, min_periods=1).mean(),
                     name='ADX_' + str(n) + '_' + str(n_ADX))
-
-    return PosDI, NegDI, ADX
+                    
+    data["PDI"],data["MDI"],data["ADX"] = PosDI, NegDI, ADX
     
-# data["PDI"],data["MDI"],data["ADX"] = cal_dmi(data)
+    return data
+    

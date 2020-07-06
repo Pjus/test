@@ -10,6 +10,6 @@ import pandas as pd
 
 def fnBolingerBand(m_DF, n=20, k=2):
     m_DF['20d_ma'] = m_DF['Close'].rolling(window=n).mean()
-    m_DF['Bol_upper'] = m_DF['Close'].rolling(window=n).mean() + k* m_DF['Close'].rolling(window=n).std()
-    m_DF['Bol_lower'] = m_DF['Close'].rolling(window=n).mean() - k* m_DF['Close'].rolling(window=n).std()
+    m_DF['Bol_upper'] = m_DF['Close'].rolling(window=n).mean() + k * m_DF['Close'].rolling(window=n).std()
+    m_DF['Bol_lower'] = m_DF['Close'].rolling(window=n).mean() - k * m_DF['Close'].rolling(window=n).std()
     return m_DF
